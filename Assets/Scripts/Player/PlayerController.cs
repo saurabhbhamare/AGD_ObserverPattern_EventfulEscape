@@ -13,19 +13,20 @@ public class PlayerController
     private float verticalAxis;
     private float mouseX;
     private PlayerState playerState;
+  //  LightSwitchView lightSwitch;
 
     public int KeysEquipped { get => playerScriptableObject.KeysEquipped; set => playerScriptableObject.KeysEquipped = value; }
     public PlayerState PlayerState { get => playerState; private set => playerState = value; }
-
-
+  
     public PlayerController(PlayerView playerView, PlayerScriptableObject playerScriptableObject)
     {
+       
         this.playerView = playerView;
         this.playerView.SetController(this);
 
         this.playerScriptableObject = playerScriptableObject;
         this.playerScriptableObject.KeysEquipped = 0;
-
+        LightSwitchView.lightSwitch += LightSwitchToggled;
         playerState = PlayerState.InDark;
     }
 
@@ -72,5 +73,17 @@ public class PlayerController
 
         rotation = playerRigidbody.rotation * Quaternion.Euler(lookRotation);
         position = (transform.position) + (velocity * movement) * Time.fixedDeltaTime;
+    }
+    private void LightSwitchToggled()
+    {
+        Debug.Log("PlayerController lightSwitch function ");
+        if (playerState== PlayerState.InDark)
+        {
+            playerState = PlayerState.None;
+        }
+        else
+        {
+            playerState = PlayerState.InDark;
+        }
     }
 }
