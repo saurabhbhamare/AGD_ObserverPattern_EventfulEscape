@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class EventService : MonoBehaviour
+public class EventService
 {
-    // Start is called before the first frame update
-    void Start()
+    private static EventService instance;
+    public static EventService Instance
     {
-        
+        get
+        {
+            if(instance == null)
+            {
+                instance = new EventService();
+            }
+            return instance;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public EventController OnLightSwitchToggled;
+    public EventService()
     {
-        
+        OnLightSwitchToggled = new EventController(); 
     }
-}
+} 
