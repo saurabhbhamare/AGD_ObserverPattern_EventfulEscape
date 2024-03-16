@@ -7,5 +7,4 @@ public class EventController
     public void RemoveListener(Action listener) => baseEvent -= listener;
     public void InvokeEvent() => baseEvent?.Invoke();
 
-
 }
