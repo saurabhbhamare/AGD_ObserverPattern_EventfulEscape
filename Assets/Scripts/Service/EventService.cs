@@ -20,5 +20,6 @@ public class EventService
     public EventService()
     {
         OnLightSwitchToggled = new EventController();
+        OnkeyPickedUp = new EventController<int>();
     }
 }
