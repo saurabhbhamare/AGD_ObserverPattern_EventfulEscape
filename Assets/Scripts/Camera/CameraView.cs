@@ -32,7 +32,6 @@ public class CameraView : MonoBehaviour
     {
         originalPosition = transform.localPosition;
     }
-
     private void Update()
     {
         Cursor.visible = false;
