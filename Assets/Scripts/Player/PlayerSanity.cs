@@ -7,7 +7,15 @@ public class PlayerSanity : MonoBehaviour
     [SerializeField] private float sanityDropAmountPerEvent = 10f;
     private float maxSanity;
     private PlayerController playerController;
+    private void OnEnable()
+    {
+        EventService.Instance.OnRatRushEvent.AddListener(OnSupernaturalEvent);
+    }
+    private void OnDisable()
+    {
+        EventService.Instance.OnRatRushEvent.RemoveListener(OnSupernaturalEvent);
 
+    }
     private void Start()
     {
         maxSanity = sanityLevel;
