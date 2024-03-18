@@ -1,6 +1,6 @@
 using UnityEngine; 
 public class LightsOffByGhostEvent : MonoBehaviour
-{
+{   
     [SerializeField] private int keysRequiredToTrigger;
     [SerializeField] private SoundType soundType;
 
